@@ -1,9 +1,13 @@
 // Write two functions that finds the factorial of any number . One should use recursive approach and the other should use a for loop 
 
-function fidnfactorialRecursive(number){
-    // Code here 
-    return answer
+function findfactorialRecursive(number){
+    if(number === 2){
+        return 2;
+    }
+     return number*findfactorialRecursive(number-1);
 }
+
+console.log(findfactorialRecursive(5));
 
 function findFactorialIterative(number){
     let answer = 1;
