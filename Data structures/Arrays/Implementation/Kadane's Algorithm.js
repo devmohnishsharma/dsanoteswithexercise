@@ -1,24 +1,101 @@
-//  TUtorial point solution...
+// This is the bruteforce way of solving it 
 
-const arr = [-2, -3, 4, -1, -2, 1, 5, -3];
-const maximumSubarray = (arr = []) => {
-   let max = -Infinity;
-   let currentSum = 0;
-   let maxStartIndex = 0;
-   let maxEndIndex = arr.length - 1;
-   let currentStartIndex = 0;
-   arr.forEach((currentNumber, currentIndex) => {
-      currentSum += currentNumber;
-      if (max < currentSum) {
-         max = currentSum;
-         maxStartIndex = currentStartIndex;
-         maxEndIndex = currentIndex;
-      }
-      if (currentSum < 0) {
-         currentSum = 0;
-         currentStartIndex = currentIndex + 1;
-      }
-   });
-   return arr.slice(maxStartIndex, maxEndIndex + 1);
-};
-console.log(maximumSubarray(arr));
+// const maxSumArray = (a)=>{
+//    let max = 0;
+
+//    for(let i=0 ; i < a.length ; i++){
+//       for(let j = i ; j < a.length ; j++){
+//          let sum = 0
+//          for (let k = i ; k <= j ; k++){
+//             sum += a[k]
+
+//             if(max < sum){
+//                max = sum
+//             }
+//          }
+//       }
+//    }
+// }
+
+// maxSumArray([1,2,3])
+
+
+// THis is kadanes algorithms optimized solution with time complexity of o(n)
+
+const maxSumArrayOptimizedApr  =(a)=>{
+   let max = a[0] ;
+   let curSum = a[0];
+
+   for(let i=1 ; i< a.length ; i++){
+      // curSum+a[i] > a[i] ? curSum = curSum+ a[i]: a[i]
+      curSum = Math.max(a[i], curSum + a[i]);
+
+      curSum > max ? max = curSum : max = max
+
+   }
+   return max
+}
+
+maxSumArrayOptimizedApr([-2,1,-3,4,-1,2,1,-5,4])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
